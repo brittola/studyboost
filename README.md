@@ -9,3 +9,6 @@ Aplicação Web para auxiliar na organização de estudos
 
 ### Protótipos no Figma
 https://www.figma.com/design/bmVSyTveebHuajZ9noveI4/StudyBoost?node-id=0-1&node-type=CANVAS&t=3VhwJgW11JAoTlOU-0
+
+### Screencast
+https://drive.google.com/file/d/1qfcsEOvhrdBtlOL1MQb7vxStaTR_aAse/view
