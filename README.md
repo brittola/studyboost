@@ -3,7 +3,7 @@ Aplicação Web para auxiliar na organização de estudos
 
 ### Integrantes
 - Artur Bezerra
-- Caio Furtado
+- Caio Furtado de Miranda Carvalho
 - Cauã Jordã
 - Davi Mendes
 - Emanuel Henry
