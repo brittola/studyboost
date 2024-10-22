@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
-</head>
-<body>
-    <div class="container">
-        <div class="stats-container">
-            <div class="details">
-                <h1>To Do List</h1>
-                <p>Never give up!</p>
-                <div id="progressBar">
-                    <div id="progress"></div>
-                </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>To Do</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <header><img src="./img/Group 9.png" alt="Icone StudyBoost" /></header>
+        <div class="containerGeral">
+            <div class="leftData"></div>
+            <div class="containerTodo">
+                <form action="">
+                    <div class="titulo">
+                        <h1>Não Listado</h1>
+                    </div>
+                    <div class="inputButton">
+                        <input
+                            type="text"
+                            id="taskInput"
+                            placeholder="Write your task"
+                        />
+                        <button id="newTask" type="submit">+</button>
+                    </div>
+                </form>
+                <ul class="task-list"></ul>
             </div>
-            <div class="stats-numbers">
-                <p id="numbers">0 / 0</p>
+            <div class="rightData">
+                <div class="stats-container">
+                    <div class="details">
+                        <p>
+                            <img src="./img/Icon.png" alt="" />Completude das
+                            tarefas listadas
+                        </p>
+                        <div class="textNumbers">
+                            <p id="numbers">0 / 0</p>
+                        </div>
+                        <div id="progressBar">
+                            <div id="progress"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <form action="">
-            <input type="text" id="taskInput" placeholder="Write your task">
-            <button id="newTask" type="submit">+</button>
-        </form>
-       
-        <ul class="task-list"></ul>
-    </div>
-    
-    <script src="app.js"></script>
-    
-</body>
+        <script src="app.js"></script>
+    </body>
 </html>
