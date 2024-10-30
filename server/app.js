@@ -14,6 +14,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/tasks', taskController.get);
+app.post('/tasks', taskController.create);
+app.put('/tasks/:id', taskController.update);
+app.delete('/tasks/:id', taskController.remove);
 
 app.post('/categories', categoryController.create);
 
