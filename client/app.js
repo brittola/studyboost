@@ -1,45 +1,45 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const storedTasks = JSON.parse(localStorage.getItem('tasks'))
+    const storedTasks = JSON.parse(localStorage.getItem("tasks"));
 
     if (storedTasks) {
-        storedTasks.forEach((task) => tasks.push(task))
+        storedTasks.forEach((task) => tasks.push(task));
         updateTasksList();
         updateStats();
     }
-})
+});
 
 let tasks = [];
-let editingIndex = null; 
+let editingIndex = null;
 
 const saveTasks = () => {
-    localStorage.setItem('tasks', JSON.stringify(tasks))
-}
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+};
 
-const progressBar = document.getElementById('progress');
+const progressBar = document.getElementById("progress");
 progressBar.style.width = `0%`;
 
 const addTask = () => {
-    const taskInput = document.getElementById('taskInput');
-    const text = taskInput.value.trim(); 
+    const taskInput = document.getElementById("taskInput");
+    const text = taskInput.value.trim();
 
     if (text) {
-        if (editingIndex !== null) { 
-            tasks[editingIndex].text = text; 
-            editingIndex = null; 
+        if (editingIndex !== null) {
+            tasks[editingIndex].text = text;
+            editingIndex = null;
         } else {
-            tasks.push({ text: text, completed: false }); 
+            tasks.push({ text: text, completed: false });
         }
 
-        taskInput.value = ''; 
+        taskInput.value = "";
         updateTasksList();
         updateStats();
-        saveTasks(); 
+        saveTasks();
     }
 };
 
 const toggleTaskComplete = (index) => {
     tasks[index].completed = !tasks[index].completed;
-    updateTasksList(); 
+    updateTasksList();
     updateStats();
     saveTasks();
 };
@@ -52,24 +52,26 @@ const deleteTask = (index) => {
 };
 
 const editTask = (index) => {
-    const taskInput = document.getElementById('taskInput');
-    taskInput.value = tasks[index].text; 
+    const taskInput = document.getElementById("taskInput");
+    taskInput.value = tasks[index].text;
     editingIndex = index;
 };
 
 const updateStats = () => {
-    const completeTasks = tasks.filter(task => task.completed).length;
+    const completeTasks = tasks.filter((task) => task.completed).length;
     const totalTasks = tasks.length;
-    const progressBar = document.getElementById('progress'); 
+    const progressBar = document.getElementById("progress");
 
     if (totalTasks > 0) {
         const progress = (completeTasks / totalTasks) * 100;
         progressBar.style.width = `${progress}%`;
     } else {
-        progressBar.style.width = `0%`; 
+        progressBar.style.width = `0%`;
     }
 
-    document.getElementById('numbers').innerText = `${completeTasks} / ${totalTasks}`; 
+    document.getElementById(
+        "numbers"
+    ).innerText = `${completeTasks} / ${totalTasks}`;
 
     if (totalTasks > 0 && completeTasks === totalTasks) {
         blastConfetti();
@@ -77,30 +79,34 @@ const updateStats = () => {
 };
 
 const updateTasksList = () => {
-    const taskList = document.querySelector('.task-list'); 
-    taskList.innerHTML = ''; 
+    const taskList = document.querySelector(".task-list");
+    taskList.innerHTML = "";
 
     tasks.forEach((task, index) => {
-        const listItem = document.createElement('li');
+        const listItem = document.createElement("li");
 
         listItem.innerHTML = `
         <div class="taskItem">
-            <div class="task ${task.completed ? 'completed' : ''}">
-                <input type="checkbox" class="checkbox" ${task.completed ? 'checked' : ''} />
+            <div class="task ${task.completed ? "completed" : ""}">
+                <input type="checkbox" class="checkbox" ${
+                    task.completed ? "checked" : ""
+                } />
                 <p>${task.text}</p>
             </div>
             <div class="icons">
-                <img src="./img/edit.png" onClick="editTask(${index})" />
-                <img src="./img/delete.png" onClick="deleteTask(${index})" />
+                <img src="./img/Vector.png" onClick="editTask(${index})" />
+                <img src="./img/X.png" onClick="deleteTask(${index})" />
             </div>
         </div>
     `;
-        listItem.querySelector('.checkbox').addEventListener('change', () => toggleTaskComplete(index)); 
-        taskList.append(listItem); 
+        listItem
+            .querySelector(".checkbox")
+            .addEventListener("change", () => toggleTaskComplete(index));
+        taskList.append(listItem);
     });
 };
 
-document.getElementById('newTask').addEventListener('click', function(e) {
+document.getElementById("newTask").addEventListener("click", function (e) {
     e.preventDefault();
     addTask();
 });
@@ -116,7 +122,7 @@ const blastConfetti = () => {
         return Math.random() * (max - min) + min;
     }
 
-    const interval = setInterval(function() {
+    const interval = setInterval(function () {
         const timeLeft = animationEnd - Date.now();
 
         if (timeLeft <= 0) {
